@@ -1,0 +1,5 @@
+django
+graphene_django
+auth0-python
+django_filters
+django-cors-headers
