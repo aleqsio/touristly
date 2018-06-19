@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^bb^juh+fm8&xp8srd4yhrr#u+zr+2fs@nrkp_aqx#w(c2gxv&'
+SECRET_KEY = '^bb^juh+fm8&xp8srd4yhrr#u+zr+2fs@nrkp_aqx#w(c2gxv&    '
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'console_api',
     'django_filters',
     'graphene_django',
-    'corsheaders',  # TODO:REMOVE
+    'corsheaders',
 ]
 
 GRAPHENE = {
