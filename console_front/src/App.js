@@ -2,7 +2,6 @@ import React from 'react';
 
 import './App.css';
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import Login from './Login/Login';
 import Switch from 'react-router-dom/es/Switch';
 import AppContainer from './AppContainer/AppContainer';
 import IntroPage from './IntroPage/IntroPage';
@@ -17,13 +16,13 @@ import CircularProgress from '@material-ui/core/CircularProgress/CircularProgres
 
 
 const App = function (props) {
-
+  console.log(props.cookies);
   let link = createHttpLink({
     uri: 'http://localhost:8000/api/graphql',
     credentials: 'include',
     headers: {
-      'X-CSRFToken': props.cookies.get("csrftoken")
-
+      'X-CSRFToken': props.cookies.get("csrftoken"),
+      'authorization':localStorage.getItem('id_token')
     }
   });
 
@@ -40,7 +39,7 @@ const App = function (props) {
         <Switch>
           <Route exact path="/" render={props => {
             return <IntroPage auth={auth}/>
-          }} component={IntroPage}/>
+          }} />
           <Route path="/login" render={props => {
             auth.login();
             return <div/>

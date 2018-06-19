@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,15 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'console_api',
-    #'django_filters',
+    'django_filters',
     'graphene_django',
-'corsheaders', #TODO:REMOVE
+    'corsheaders',  # TODO:REMOVE
 ]
 
 GRAPHENE = {
     'SCHEMA': 'console_api.schema.schema'  # Where your Graphene schema lives
 }
-
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -56,8 +54,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-  #  'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    #  'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
 CORS_ORIGIN_ALLOW_ALL = True
@@ -65,7 +62,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
 )
-CSRF_COOKIE_SECURE =False
+CSRF_COOKIE_SECURE = False
 CORS_ORIGIN_REGEX_WHITELIST = (
     'localhost:3000',
 )
@@ -132,6 +129,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "console_front", "build", "static"),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "console_front", "build", "static"), os.path.join(BASE_DIR, "data"))
 
 STATIC_URL = '/static/'
+
+CORS_ALLOW_HEADERS = (
+    'content-type',
+    'authorization',
+    'x-csrftoken',
+)

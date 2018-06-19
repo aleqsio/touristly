@@ -22,7 +22,6 @@ const styles = theme => ({
     flexGrow: 1,
     zIndex: 1,
     overflow: 'hidden',
-    position: 'relative',
     display: 'flex',
   },
   appBar: {
@@ -31,6 +30,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    position:'fixed'
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -48,13 +48,13 @@ const styles = theme => ({
     display: 'none',
   },
   drawerPaper: {
-    position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    position:'fixed'
   },
   drawerPaperClose: {
     overflowX: 'hidden',
@@ -68,16 +68,18 @@ const styles = theme => ({
     },
   },
   toolbar: {
-    display: 'flex',
+
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
   content: {
+    flexDirection:"column",
+    flex:1,
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    padding: 100+theme.spacing.unit * 3,
   },
 });
 
@@ -133,10 +135,11 @@ class MiniDrawerContainer extends React.Component {
           {mainMenu}
         </Drawer>
         <div className={classes.toolbar}>
-          <main className={classes.content}>
-            {content}
-          </main>
+
         </div>
+        <main className={classes.content}>
+          {content}
+        </main>
       </div>
     );
   }

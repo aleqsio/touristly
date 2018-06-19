@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Typography from '@material-ui/core/Typography/Typography';
 import Chip from '@material-ui/core/Chip/Chip';
-import withStyles from '@material-ui/core/es/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 
 import ThreeDRotationIcon from '@material-ui/icons/ThreeDRotation';
 
